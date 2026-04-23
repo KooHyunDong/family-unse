@@ -35,9 +35,9 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# 맥북 개발자 도구에서 추출한 정확한 Payload 적용
+# Payload 데이터 세팅
 family_members = {
-    "김미영": {
+    "김미영 (어머니)": {
         "pw": "1006",
         "icon": "👩🏻",
         "form_data": {
@@ -46,12 +46,12 @@ family_members = {
             "free_yn": "Y",
             "login_yn": "N",
             "user_name": "김미영",
-            "sex": "여",           # '남'의 반대값
+            "sex": "여",           
             "birth_yyyy": "1961",
             "birth_mm": "10",
             "birth_dd": "06",
-            "birth_hh": "08",      # 진시 (07:30~09:30 기준값)
-            "birth_solunar": "L_C", # 음력 평달 (추정값)
+            "birth_hh": "08",      
+            "birth_solunar": "L_C", 
             "target_yyyy": "2026"
         }
     },
@@ -68,8 +68,8 @@ family_members = {
             "birth_yyyy": "1988",
             "birth_mm": "04",
             "birth_dd": "27",
-            "birth_hh": "06",      # 묘시
-            "birth_solunar": "S_C", # 양력
+            "birth_hh": "06",      
+            "birth_solunar": "S_C", 
             "target_yyyy": "2026"
         }
     }
@@ -104,9 +104,9 @@ if 'selected_name' in st.session_state:
             for key, value in target_info['form_data'].items():
                 inputs_html += f'<input type="hidden" name="{key}" value="{value}">\n'
             
-            # HTML POST 폼 및 전송 버튼 생성
+            # 🔥 ACTION URL 수정 완료 🔥
             html_code = f"""
-            <form id="autoSubmit" action="https://m.unsin.co.kr/unse/saju/free/result" method="POST" target="_blank" style="display:none;">
+            <form id="autoSubmit" action="https://www.unsin.co.kr/unse/free/today/result" method="POST" target="_blank" style="display:none;">
                 {inputs_html}
             </form>
             <button onclick="document.getElementById('autoSubmit').submit()" 
